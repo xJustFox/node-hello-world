@@ -16,8 +16,12 @@ const randomQuote = () =>{
 const server = http.createServer((req, res) => {
     const helloWorld = process.env.HELLOWORLD
 
+    if (req.url === '/favicon.ico') {
+        res.writeHead(404);
+        res.end();
+        return
+    }
     
-
     res.writeHead(200, { "Content-Type": "text/html" });
     res.end(`<!DOCTYPE html>
     <html lang="en">
